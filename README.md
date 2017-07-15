@@ -34,3 +34,11 @@ pool validator:[:o|o size = 0].
 ```
 One can set maximum size of pool with #maxIdleIbjects. See more about pool configuration
 in documentation of OPBasicPool.
+
+## Installation
+```Smalltalk
+Metacello new
+  baseline: 'ObjectPool';
+  repository: 'github://dionisiydk/ObjectPool';
+  load
+```

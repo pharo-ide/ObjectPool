@@ -28,7 +28,7 @@ Or to do that before borrow add activator:
 ```Smalltalk
 pool activator:[:o|o removeAll].
 ```
-To validate objets before borrow add following. Objects that do not validate are destroyed.
+To validate objects before borrow add following. Objects that do not validate are destroyed.
 ```Smalltalk
 pool validator:[:o|o size = 0].
 ```

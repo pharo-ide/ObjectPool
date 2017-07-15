@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "PanuSuominen 3/4/2011 22:10",
+	"super" : "TestCase",
+	"category" : "ObjectPool-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"pool",
+		"borrowed"
+	],
+	"name" : "OPPoolTestCase",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+private
+signalIdleAvailable
+	lock signal

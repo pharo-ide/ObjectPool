@@ -1,0 +1,23 @@
+{
+	"commentStamp" : "PanuSuominen 3/3/2011 07:35",
+	"super" : "OPPool",
+	"category" : "ObjectPool",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"creator",
+		"passivator",
+		"activator",
+		"destroyer",
+		"validator",
+		"maxWait",
+		"maxActive",
+		"minIdleObjects",
+		"maxIdleObjects",
+		"maxActiveObjects",
+		"maxWaitForBorrow"
+	],
+	"name" : "OPBasicPool",
+	"type" : "normal"
+}

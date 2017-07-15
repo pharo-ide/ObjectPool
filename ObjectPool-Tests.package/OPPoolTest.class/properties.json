@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "OPPoolTestCase",
+	"category" : "ObjectPool-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPPoolTest",
+	"type" : "normal"
+}

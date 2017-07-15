@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "DenisKudryashov 8/31/2016 14:35",
+	"super" : "Exception",
+	"category" : "ObjectPool",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPAbortOperation",
+	"type" : "normal"
+}

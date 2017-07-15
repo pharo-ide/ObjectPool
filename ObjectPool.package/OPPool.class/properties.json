@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "PanuSuominen 3/1/2011 21:32",
+	"super" : "Object",
+	"category" : "ObjectPool",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"lock",
+		"borrowedObjects",
+		"idleObjects"
+	],
+	"name" : "OPPool",
+	"type" : "normal"
+}

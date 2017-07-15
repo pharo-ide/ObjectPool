@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ObjectPoolHelp",
+	"category" : "ObjectPool-Help",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ObjectPoolApiHelp",
+	"type" : "normal"
+}

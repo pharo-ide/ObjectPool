@@ -42,3 +42,10 @@ Metacello new
   repository: 'github://dionisiydk/ObjectPool';
   load
 ```
+Use following snippet for stable dependency in your project baseline:
+```Smalltalk
+spec
+    baseline: 'ObjectPool'
+    with: [ spec repository: 'github://dionisiydk/ObjectPool:v0.3.x' ]
+```
+

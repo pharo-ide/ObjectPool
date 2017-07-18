@@ -11,8 +11,6 @@
 		"activator",
 		"destroyer",
 		"validator",
-		"maxWait",
-		"maxActive",
 		"minIdleObjects",
 		"maxIdleObjects",
 		"maxActiveObjects",

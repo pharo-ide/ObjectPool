@@ -1,3 +1,3 @@
-as yet unclassified
+pooling
 ensureMinimumIdleObjects
 	self critical: [ self whileNotEnoughIdleObjects: [ self addObject ] ]

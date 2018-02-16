@@ -1,3 +1,3 @@
-as yet unclassified
+pooling
 whileNotEnoughIdleObjects: aBlock
 	^ [self hasEnoughIdleObjects] whileFalse: aBlock.

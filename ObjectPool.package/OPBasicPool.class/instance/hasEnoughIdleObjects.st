@@ -1,3 +1,3 @@
-as yet unclassified
+pooling
 hasEnoughIdleObjects
 	^ minIdleObjects ifNil: [ true ] ifNotNil: [ idleObjects size >= minIdleObjects ]

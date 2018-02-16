@@ -1,4 +1,4 @@
-as yet unclassified
+pooling
 fixMaxActiveObjects
 
 	self critical: [maxActiveObjects := self numberOfAvailableObjects].

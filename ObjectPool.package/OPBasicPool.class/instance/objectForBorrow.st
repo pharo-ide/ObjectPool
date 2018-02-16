@@ -1,11 +1,9 @@
-as yet unclassified
+pooling
 objectForBorrow
-	self critical: [ 
-	maxActiveObjects
-		ifNotNil: [ 
-			maxWaitForBorrow
-				ifNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] ]
-				ifNotNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] timoutAfterMilliseconds: maxWaitForBorrow ] ].
-	].
-	
-	^ super objectForBorrow
+	^self critical: [ 
+		maxActiveObjects
+			ifNotNil: [ 
+				maxWaitForBorrow
+					ifNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] ]
+					ifNotNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] timoutAfterMilliseconds: maxWaitForBorrow ] ].
+		super objectForBorrow	]

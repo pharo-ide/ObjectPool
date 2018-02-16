@@ -1,3 +1,3 @@
-as yet unclassified
+pooling
 ifNotEnoughIdleObjects: aBlock
 	^ self hasEnoughIdleObjects ifTrue: aBlock

@@ -1,3 +1,0 @@
-running
-poolClass
-	 ^OPBasicPool.

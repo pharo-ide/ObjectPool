@@ -1,1 +1,0 @@
-This is HelpSystem documentation for ObjectPool.

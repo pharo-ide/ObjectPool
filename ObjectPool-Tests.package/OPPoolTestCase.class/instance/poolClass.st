@@ -1,3 +1,0 @@
-running
-poolClass
-	self subclassResponsibility.

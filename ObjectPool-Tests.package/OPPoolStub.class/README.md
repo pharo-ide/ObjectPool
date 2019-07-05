@@ -1,1 +1,0 @@
-I exists just for testing OPPool. I implement the mandatory #makeObject mehtod.

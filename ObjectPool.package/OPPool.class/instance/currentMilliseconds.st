@@ -1,3 +1,0 @@
-synchronizing
-currentMilliseconds
-	^Time primMillisecondClock.

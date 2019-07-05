@@ -1,3 +1,0 @@
-private
-signalIdleAvailable
-	lock signal

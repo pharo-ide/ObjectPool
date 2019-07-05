@@ -1,3 +1,0 @@
-pool configuration
-destroyer
-	^destroyer

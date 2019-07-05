@@ -1,1 +1,0 @@
-ObjectPoolTest tests the working of ObjectPool.

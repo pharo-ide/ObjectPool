@@ -39,13 +39,13 @@ in documentation of OPBasicPool.
 ```Smalltalk
 Metacello new
   baseline: 'ObjectPool';
-  repository: 'github://dionisiydk/ObjectPool';
+  repository: 'github://pharo-ide/ObjectPool';
   load
 ```
 Use following snippet for stable dependency in your project baseline:
 ```Smalltalk
 spec
     baseline: 'ObjectPool'
-    with: [ spec repository: 'github://dionisiydk/ObjectPool:v0.3.x' ]
+    with: [ spec repository: 'github://pharo-ide/ObjectPool:v1.0.0' ]
 ```
 

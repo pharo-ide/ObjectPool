@@ -27,7 +27,7 @@ Objects borrowed from OPPool have following basic lifecycle:
 3. When objects are returned to pool they are passivated.
 4. When objects is no longer usable (some lifecycle operation fails) or needed it is destroyed.
 
-See documentation of #OPPool for more information abour lifecycle. There is also
+See documentation of #OPPool for more information about lifecycle. There is also
 OPBasicPool that does validation to check if objects are still usable.
 
 This library was developed for University of Jyväskylä under MIT-license.
@@ -57,10 +57,10 @@ To also clear collections when they are returned add passivator
 Or to do that before borrow add activator:
 	pool activator:[:o|o removeAll].
 	
-To validate objets before borrow add following. Objects that do not validate are destroyed.
+To validate objects before borrow add following. Objects that do not validate are destroyed.
 	pool validator:[:o|o size = 0].
 	
-One can set maximum size of pool with #maxIdleIbjects. See more about pool configuration
+One can set maximum size of pool with #maxIdleObjects. See more about pool configuration
 in documentation of OPBasicPool.
 '.
 ]

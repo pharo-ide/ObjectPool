@@ -1,13 +1,13 @@
 "
-I add some usable fetures to the general object pool.
+I add some usable features to the general object pool.
 - validation
 - max and min sizes for idle objects.
 
 Things to do:
 - max size for borrowed objects.
 - max time to wait for object.
-- possibility to set if validation occurs befor borrow, after return or while idle.
-- background idle cheking.
+- possibility to set if validation occurs before borrow, after return or while idle.
+- background idle checking.
 - time tracking for idle time.
 - time tracking for borrow time. (maybe)
 "
@@ -151,7 +151,7 @@ OPBasicPool >> migrateObjectsInto: anotherPool andDo: aBlock [
 { #category : #'pool configuration' }
 OPBasicPool >> minIdleObjects: anInteger [
 "
-Sets the minum ammount of idle objects that are tried to keep on this pool.
+Sets the minimum amount of idle objects that are tried to keep on this pool.
 Method also creates more idle objects if there are not enough them at the moment.
 "
 	minIdleObjects := anInteger.
@@ -191,7 +191,7 @@ OPBasicPool >> unsafeBorrow [
 		maxActiveObjects ifNotNil: [ 
 			maxWaitForBorrow
 				ifNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] ]
-				ifNotNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] timoutAfterMilliseconds: maxWaitForBorrow ]].
+				ifNotNil: [ self waitUntil: [ self numberOfActiveObjects < maxActiveObjects ] timeoutAfterMilliseconds: maxWaitForBorrow ]].
 		idleObjects ifNotEmpty: [ 
 			^ borrowedObjects add: self objectFromPool ]	].
 	newObject := self makeObject.

@@ -36,7 +36,7 @@ OPBasicPoolTest >> testDoubleReturnIsNotPossible [
 ]
 
 { #category : #tests }
-OPBasicPoolTest >> testErrorInPassivatorIsNotEated [
+OPBasicPoolTest >> testErrorInPassivatorIsNotEaten [
 
 	pool creator: [Object new].
 	pool passivator:[:o|Error signal].
@@ -90,7 +90,7 @@ OPBasicPoolTest >> testMaxActiveObjects [
 
 { #category : #tests }
 OPBasicPoolTest >> testMaxActiveObjectsOneDoesNotBlockFirstBorrow [
-	"Test that 1 maxActieObjects can return one object"
+	"Test that 1 maxActiveObjects can return one object"
 	pool creator: [ Object new ].
 	pool maxActiveObjects: 1.
 	self should: [self borrowOne] notTakeMoreThan: 0.1 seconds asDuration.
@@ -303,7 +303,7 @@ OPBasicPoolTest >> testObjectsArePooled [
 ]
 
 { #category : #tests }
-OPBasicPoolTest >> testObjectsAreValidatedBeforBorrow [
+OPBasicPoolTest >> testObjectsAreValidatedBeforeBorrow [
 	| expected called |
 	called := false.
 	expected := Object new.

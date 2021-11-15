@@ -5,7 +5,6 @@
 [![Coverage Status](https://codecov.io/github/pharo-ide/ObjectPool/coverage.svg?branch=master)](https://codecov.io/gh/pharo-ide/ObjectPool/branch/master)
 [![Baseline groups](https://github.com/pharo-ide/ObjectPool/actions/workflows/loading-groups.yml/badge.svg)](https://github.com/pharo-ide/ObjectPool/actions/workflows/loading-groups.yml)
 
-
 [![Pharo 7.0](https://img.shields.io/badge/Pharo-7.0-informational)](https://pharo.org)
 [![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
 [![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)

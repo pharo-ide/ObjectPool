@@ -7,13 +7,15 @@ Class {
 	#category : 'ObjectPool-Help'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> bookName [
+  <ignoreForCoverage>
 	^'ObjectPool'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> introduction [
+  <ignoreForCoverage>
 	^HelpTopic title: 'Introduction' contents:
 'Object Pool offers easy way to build pools for objects. One common situation
 could be pooling database connections. This library was created for supporting pooling
@@ -36,13 +38,15 @@ panu.suominen@iki.fi
 '.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> pages [
+  <ignoreForCoverage>
 	^#(introduction usage )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> usage [
+  <ignoreForCoverage>
 	^HelpTopic title: 'Basic usage' contents:
 'To create pool for of OrderedCollections one could write:
 	OPBasicPool new

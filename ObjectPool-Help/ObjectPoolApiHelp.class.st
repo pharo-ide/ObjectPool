@@ -4,22 +4,20 @@ Class {
 	#category : 'ObjectPool-Help'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolApiHelp class >> bookName [
-	^'Reference'
+	<ignoreForCoverage>
+  ^'Reference'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolApiHelp class >> builder [
-	^PackageAPIHelpBuilder
+  <ignoreForCoverage>
+  ^PackageAPIHelpBuilder
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolApiHelp class >> helpPackages [
-	^#('ObjectPool-Core')
-]
-
-{ #category : #'as yet unclassified' }
-ObjectPoolApiHelp class >> packages [
-	^#('ObjectPool-Core')
+	<ignoreForCoverage>
+  ^#('ObjectPool' 'ObjectPool-Tests')
 ]

@@ -4,7 +4,7 @@ ObjectPoolTest tests the working of ObjectPool.
 Class {
 	#name : #OPBasicPoolTest,
 	#superclass : #OPPoolTestCase,
-	#category : 'ObjectPool-Tests'
+	#category : #'ObjectPool-Tests'
 }
 
 { #category : #running }
@@ -153,18 +153,21 @@ OPBasicPoolTest >> testMigrationObjectsToAnotherPool [
 OPBasicPoolTest >> testMigrationObjectsToAnotherPoolWhenBorrowedObjectsExists [
 
 	| anotherPool |
+
 	pool objectToPool: #object1.
 	pool objectToPool: #object2.
 	pool borrow.
-	
+
 	anotherPool := self poolClass new.
-	
-	[pool migrateObjectsInto: anotherPool andDo: nil.
-	self assert: false description: 'should raise error'
-	] ifError: [].
-		
-	self assert: anotherPool numberOfAvailableObjects = 0.
-	self assert: pool numberOfAvailableObjects = 2
+
+	self
+		should: [ 
+			pool migrateObjectsInto: anotherPool andDo: nil.
+			self assert: false description: 'should raise error'
+			]
+		raise: Error.
+	self assert: anotherPool numberOfAvailableObjects equals: 0.
+	self assert: pool numberOfAvailableObjects equals: 2
 ]
 
 { #category : #tests }

@@ -2,7 +2,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'ObjectPool',
-      #directory : '..',
+      #directory : '../source',
       #load : [ 'Core' ],
       #platforms : [  #pharo ]
     }

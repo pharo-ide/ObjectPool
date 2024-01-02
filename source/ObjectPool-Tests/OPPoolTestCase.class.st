@@ -1,5 +1,5 @@
 "
-I am base class for object pool tests. I implement #borrowOne and #returnOne conviency methods to help test writing.
+I am base class for object pool tests. I implement #borrowOne and #returnOne convenience methods to help test writing.
 
 Instance Variables:
 	pool	<OPPool>					The pool that is tested

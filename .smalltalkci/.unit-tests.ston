@@ -2,7 +2,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'ObjectPool',
-      #directory : '',
+      #directory : '../source',
       #load : [ 'Tests' ],
       #platforms : [  #pharo ]
     }
@@ -10,8 +10,7 @@ SmalltalkCISpec {
   #testing : {
     #coverage : {
        #packages : [ 'ObjectPool*' ],
-       #service: #codecov,
-       #auto_upload: false
+       #format: #lcov
     }
   }
 }

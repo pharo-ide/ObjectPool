@@ -7,13 +7,15 @@ Class {
 	#category : 'ObjectPool-Help'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> bookName [
+  <ignoreForCoverage>
 	^'ObjectPool'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> introduction [
+  <ignoreForCoverage>
 	^HelpTopic title: 'Introduction' contents:
 'Object Pool offers easy way to build pools for objects. One common situation
 could be pooling database connections. This library was created for supporting pooling
@@ -27,7 +29,7 @@ Objects borrowed from OPPool have following basic lifecycle:
 3. When objects are returned to pool they are passivated.
 4. When objects is no longer usable (some lifecycle operation fails) or needed it is destroyed.
 
-See documentation of #OPPool for more information abour lifecycle. There is also
+See documentation of #OPPool for more information about lifecycle. There is also
 OPBasicPool that does validation to check if objects are still usable.
 
 This library was developed for University of Jyväskylä under MIT-license.
@@ -36,13 +38,15 @@ panu.suominen@iki.fi
 '.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> pages [
+  <ignoreForCoverage>
 	^#(introduction usage )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing' }
 ObjectPoolHelp class >> usage [
+  <ignoreForCoverage>
 	^HelpTopic title: 'Basic usage' contents:
 'To create pool for of OrderedCollections one could write:
 	OPBasicPool new
@@ -57,10 +61,10 @@ To also clear collections when they are returned add passivator
 Or to do that before borrow add activator:
 	pool activator:[:o|o removeAll].
 	
-To validate objets before borrow add following. Objects that do not validate are destroyed.
+To validate objects before borrow add following. Objects that do not validate are destroyed.
 	pool validator:[:o|o size = 0].
 	
-One can set maximum size of pool with #maxIdleIbjects. See more about pool configuration
+One can set maximum size of pool with #maxIdleObjects. See more about pool configuration
 in documentation of OPBasicPool.
 '.
 ]

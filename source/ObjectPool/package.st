@@ -1,1 +1,1 @@
-Package { #name : #ObjectPool }
+Package { #name : 'ObjectPool' }

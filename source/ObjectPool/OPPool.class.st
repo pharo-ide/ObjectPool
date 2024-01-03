@@ -30,30 +30,31 @@ Instance Variables:
 
 "
 Class {
-	#name : #OPPool,
-	#superclass : #Object,
+	#name : 'OPPool',
+	#superclass : 'Object',
 	#instVars : [
 		'lock',
 		'borrowedObjects',
 		'idleObjects'
 	],
-	#category : 'ObjectPool'
+	#category : 'ObjectPool',
+	#package : 'ObjectPool'
 }
 
-{ #category : #'object-lifecycle' }
+{ #category : 'object-lifecycle' }
 OPPool >> activateObject: anObject [
 	"Activates previously passivated object"
 
 	
 ]
 
-{ #category : #pooling }
+{ #category : 'pooling' }
 OPPool >> addObject [ 
 	"Creates object, then passivate it and adds to pool."
 	self objectToPool: self makeObject.  
 ]
 
-{ #category : #pooling }
+{ #category : 'pooling' }
 OPPool >> borrow [
 	"Returns activated object from pool or creates new pooled object and returns it."
 
@@ -68,37 +69,38 @@ OPPool >> borrow [
 	^ object
 ]
 
-{ #category : #pooling }
+{ #category : 'pooling' }
 OPPool >> clear [
 	"Removes all objects from the pool and reinitialize it.
 	Method will run the destroyer for every pooled objects."
 
 	| oldObjects |
-	lock
+	self
 		critical: [ 
 			oldObjects :=  IdentitySet withAll: idleObjects.
 			idleObjects removeAll ].
 	oldObjects do: [ :o | self destroyObject: o ]
 ]
 
-{ #category : #synchronizing }
+{ #category : 'synchronizing' }
 OPPool >> critical: aBlock [
 	^lock critical: aBlock.
 ]
 
-{ #category : #synchronizing }
+{ #category : 'synchronizing' }
 OPPool >> currentMilliseconds [
-	^Time primMillisecondClock.
+
+	^ Time millisecondClockValue
 ]
 
-{ #category : #'object-lifecycle' }
+{ #category : 'object-lifecycle' }
 OPPool >> destroyObject: anObject [
 	"Destroys an object"
 
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPPool >> initPool [
 	idleObjects := IdentitySet new.
 	borrowedObjects := IdentitySet new.
@@ -106,50 +108,50 @@ OPPool >> initPool [
 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPPool >> initialize [
 	super initialize.
 	self initPool.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPPool >> isEmpty [
 
 	^idleObjects isEmpty & borrowedObjects isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPPool >> isPooled: anObject [
 	"Returns true if given object is pooled in this pool. Returns false otherwise.
 	Method does not depend on whether object is currently borrowed or not.
 	"
 
-	lock critical: [ ^ (borrowedObjects includes: anObject) or: [idleObjects includes: anObject] ].
+	^ self critical: [ ( borrowedObjects includes: anObject ) or: [ idleObjects includes: anObject ] ]
 ]
 
-{ #category : #'object-lifecycle' }
+{ #category : 'object-lifecycle' }
 OPPool >> makeObject [
 	"Creates new object in activated state."
 	self subclassResponsibility.
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPPool >> numberOfActiveObjects [
 	^self critical: [borrowedObjects size].
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPPool >> numberOfAvailableObjects [
 	^self critical: [borrowedObjects size + idleObjects size].
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPPool >> numberOfIdleObjects [
 	^self critical: [idleObjects size].
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPPool >> objectFromPool [
 	"Return an activated object from pool. Should not be called if there are no
 	free objects in the pool."
@@ -160,7 +162,7 @@ OPPool >> objectFromPool [
 	^ object
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPPool >> objectFromPoolOrElse: notAvailableBlock [
 	"Returns activated object from queue or runs given block."
 
@@ -169,16 +171,16 @@ OPPool >> objectFromPoolOrElse: notAvailableBlock [
 		ifNotEmpty: [ self objectFromPool ]
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 OPPool >> objectGoingToBeBorrowed: anObject [
 
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 OPPool >> objectGoingToBeReturned: anObject [
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPPool >> objectToPool: anObject [
 	"Puts object back to pool"
 	self passivateObject: anObject.
@@ -188,12 +190,12 @@ OPPool >> objectToPool: anObject [
 			self signalIdleAvailable ]
 ]
 
-{ #category : #'object-lifecycle' }
+{ #category : 'object-lifecycle' }
 OPPool >> passivateObject: anObject [
 	"Passivate an activated object"
 ]
 
-{ #category : #pooling }
+{ #category : 'pooling' }
 OPPool >> return: anObject [
 	"Returns previously borrowed object from the pool. If object is not from this pool then
 	ObjectPoolWrongPoolError is raised."
@@ -210,12 +212,12 @@ OPPool >> return: anObject [
 		self objectToPool: anObject]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPPool >> signalIdleAvailable [
 	lock signal
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPPool >> unsafeBorrow [
 	| object |
 	object := self objectFromPoolOrElse: [ self makeObject ].
@@ -223,27 +225,13 @@ OPPool >> unsafeBorrow [
 	^object
 ]
 
-{ #category : #synchronizing }
+{ #category : 'synchronizing' }
 OPPool >> waitUntil: aBlock [
 "Waits signal on synchronization lock until given block evaluates true."
 	lock waitUntil: aBlock.  
 ]
 
-{ #category : #synchronizing }
-OPPool >> waitUntil: aBlock timeoutAfterMilliseconds: aNumber [
-"Waits signal on synchronization lock until aBlock evaluates true or more than
-given milliseconds have passed then OPTimedOutError is signaled."
-	| startTime |
-	startTime := self currentMilliseconds.
-	lock
-		waitUntil: [ 
-			self currentMilliseconds - startTime > aNumber
-				ifTrue: [ OPTimedOutError signal ].
-			aBlock value.]
-		maxMilliseconds: aNumber
-]
-
-{ #category : #pooling }
+{ #category : 'pooling' }
 OPPool >> withPooled: oneArgumentBlock [
 	"Runs given block with object from the pool."
 	| o |
